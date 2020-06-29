@@ -8,6 +8,8 @@
 // ini_set('display_errors', 'On');
 // ini_set('error_reporting', E_ALL);
 
+require_once("../util.php");
+
 //-------------------------------------------------
 // 初期値
 //-------------------------------------------------
@@ -18,9 +20,9 @@ define('DEFAULT_MONEY', 3000);
 //-------------------------------------------------
 // 準備
 //-------------------------------------------------
-$dsn  = 'mysql:dbname=sgrpg;host=127.0.0.1';  // 接続先を定義
-$user = 'senpai';      // MySQLのユーザーID
-$pw   = 'indocurry';   // MySQLのパスワード
+//$dsn  = 'mysql:dbname=sgrpg;host=127.0.0.1';  // 接続先を定義
+//$user = 'senpai';      // MySQLのユーザーID
+//$pw   = 'indocurry';   // MySQLのパスワード
 
 // 実行したいSQL
 $sql1 = 'INSERT INTO User(lv, exp, money) VALUES(:lv, :exp, :money)';
@@ -82,10 +84,4 @@ else{
  * @param array   $value
  * @return void
  */
-function sendResponse($status, $value=[]){
-  header('Content-type: application/json');
-  echo json_encode([
-    'status' => $status,
-    'result' => $value
-  ]);
 }
